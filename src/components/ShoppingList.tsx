@@ -23,36 +23,6 @@ export default function ShoppingList({ ingredients, products }: ShoppingListProp
   return (
     <div className="divide-y divide-gray-100">
       <div className="p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Required Ingredients</h3>
-        <div className="grid gap-3">
-          {Object.entries(ingredients).map(([ingredient, amount]) => {
-            const product = getProduct(ingredient);
-            return (
-              <div
-                key={ingredient}
-                className="flex items-center justify-between p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="h-2 w-2 rounded-full bg-indigo-500"></div>
-                  <div>
-                    <div className="font-medium text-gray-900">{ingredient}</div>
-                    <div className="text-sm text-gray-500">{amount}g needed</div>
-                  </div>
-                </div>
-                {product && (
-                  <div className="text-right">
-                    <div className="text-sm font-medium text-indigo-600">{product.product}</div>
-                    <div className="text-xs text-gray-500">{product.description}</div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      <div className="p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Shopping Cart</h3>
         <div className="grid gap-3">
           {uniqueProducts.map((product) => (
             <div

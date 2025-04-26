@@ -7,11 +7,13 @@ import { MealType, MealData } from '@/types/meals';
 import MealCard from '@/components/MealCard';
 import NutritionSummary from '@/components/NutritionSummary';
 import ShoppingList from '@/components/ShoppingList';
+import SmartMealPlanner from '@/components/SmartMealPlanner';
 import mealsData from '@/data/meals.json';
 
 function MealPlanner() {
-  const { selectedMeals, dailyNutrition, consolidatedIngredients, toggleMealSelection, getSelectedMeal } = useMealContext();
+  const { selectedMeals, dailyNutrition, consolidatedIngredients, toggleMealSelection, getSelectedMeal, planMeals } = useMealContext();
   const [showShoppingList, setShowShoppingList] = useState(false);
+  const [showSmartPlanner, setShowSmartPlanner] = useState(false);
   const data: MealData = JSON.parse(JSON.stringify(mealsData));
 
   const mealTypes: { type: MealType; title: string; gradient: string }[] = [
@@ -75,43 +77,45 @@ function MealPlanner() {
           ))}
         </div>
 
-        {selectedMeals.length > 0 && (
-          <div className="fixed bottom-6 right-6 z-50">
+        <div className="fixed bottom-6 right-6 flex flex-col items-end space-y-4">
+          <button
+            onClick={() => setShowSmartPlanner(true)}
+            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
+            title="Smart Meal Planner"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+            </svg>
+          </button>
+          {selectedMeals.length > 0 && (
             <button
-              onClick={() => setShowShoppingList(!showShoppingList)}
-              className="bg-gradient-to-r from-indigo-500 to-violet-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 relative group"
+              onClick={() => setShowShoppingList(true)}
+              className="bg-gradient-to-r from-indigo-500 to-violet-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 relative"
+              title="View Shopping List"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-8 h-8"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-                />
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
               </svg>
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center">
                 {Object.keys(consolidatedIngredients).length}
               </span>
-              <div className="absolute bottom-full right-0 mb-2 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                <div className="bg-gray-900 text-white text-sm py-1 px-2 rounded whitespace-nowrap">
-                  View Shopping List
-                </div>
-              </div>
             </button>
-          </div>
+          )}
+        </div>
+
+        {showSmartPlanner && (
+          <SmartMealPlanner
+            onClose={() => setShowSmartPlanner(false)}
+            dishes={data.dishes}
+            onPlanMeals={planMeals}
+          />
         )}
 
         {showShoppingList && (
           <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 flex items-center justify-center" onClick={() => setShowShoppingList(false)}>
             <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden m-4" onClick={e => e.stopPropagation()}>
               <div className="p-6 bg-gradient-to-r from-indigo-500 to-violet-600 text-white flex justify-between items-center">
-                <h2 className="text-2xl font-bold">Shopping List</h2>
+                <h2 className="text-2xl font-bold">Shopping Cart</h2>
                 <button 
                   onClick={() => setShowShoppingList(false)}
                   className="text-white hover:text-indigo-100 transition-colors"

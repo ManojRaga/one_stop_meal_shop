@@ -11,20 +11,11 @@ export interface Dish {
   };
 }
 
-export interface Product {
-  product: string;
-  quantity: string;
-  description: string;
-}
-
-export interface MealData {
-  dishes: {
-    breakfast: Dish[];
-    lunch: Dish[];
-    dinner: Dish[];
-    snack: Dish[];
-  };
-  products: Product[];
+export interface DailyNutrition {
+  calories_kcal: number;
+  protein_g: number;
+  carbs_g: number;
+  fat_g: number;
 }
 
 export interface SelectedMeal {
@@ -32,9 +23,13 @@ export interface SelectedMeal {
   dish: Dish;
 }
 
-export interface DailyNutrition {
-  calories_kcal: number;
-  protein_g: number;
-  carbs_g: number;
-  fat_g: number;
+export interface MealData {
+  dishes: {
+    [key in MealType]: Dish[];
+  };
+  products: Array<{
+    product: string;
+    quantity: string;
+    description: string;
+  }>;
 }
