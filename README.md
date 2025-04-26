@@ -10,6 +10,15 @@ A modern meal planning application that helps you plan your daily meals and gene
 - **Beautiful UI**: Modern, responsive design with gradients and glassmorphism effects
 - **Type-Safe**: Built with TypeScript for robust code quality
 
+## Smart Meal Planner
+
+The Smart Meal Planner feature helps you automatically plan meals that match your nutritional goals:
+
+- Set daily calorie targets (1300-2300 kcal)
+- Set protein targets (50-150g)
+- Click the magic wand button to access the planner
+- Get instant meal suggestions that match your goals
+
 ## Tech Stack 💻
 
 - **Framework**: Next.js 15.3 with Turbopack
