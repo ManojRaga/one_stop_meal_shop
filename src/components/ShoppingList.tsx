@@ -33,7 +33,10 @@ function getProductQuantityInGrams(quantityStr: string): number {
   // Handle special cases
   if (quantityStr.includes('pieces')) {
     const pieces = parseInt(quantityStr.split(' ')[0], 10);
-    return pieces * 200; // Assuming each piece is about 200g
+    if (quantityStr.toLowerCase().includes('egg')) {
+      return pieces * 50; // Each egg is about 50g
+    }
+    return pieces * 100; // Default piece weight
   }
   if (quantityStr.includes('loaf')) {
     return quantityStr.includes('half') ? 400 : 800; // Assuming a loaf is 800g

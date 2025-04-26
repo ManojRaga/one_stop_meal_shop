@@ -516,13 +516,13 @@
       "description": "Half size carton"
     },
     {
-      "product": "Eggs carton",
-      "quantity": "12 eggs",
+      "product": "Eggs",
+      "quantity": "12 pieces",
       "description": "Large eggs"
     },
     {
-      "product": "Eggs carton (small)",
-      "quantity": "6 eggs",
+      "product": "Eggs (small)",
+      "quantity": "6 pieces",
       "description": "Large eggs, half dozen"
     },
     {
@@ -1159,6 +1159,16 @@
       "product": "Pesto (small)",
       "quantity": "90g",
       "description": "Fresh basil pesto"
+    },
+    {
+      "product": "Sesame Seeds",
+      "quantity": "100g",
+      "description": "Toasted sesame seeds"
+    },
+    {
+      "product": "Sesame Seeds (small)",
+      "quantity": "50g",
+      "description": "Toasted sesame seeds"
     }
   ]
 }
