@@ -1,0 +1,374 @@
+{
+    "dishes": {
+        "breakfast": [
+            {
+                "name": "Oatmeal with Banana",
+                "calories_kcal": 350,
+                "protein_g": 10,
+                "carbs_g": 60,
+                "fat_g": 5,
+                "ingredients": {
+                    "Oats": 50,
+                    "Banana": 100,
+                    "Milk": 200
+                }
+            },
+            {
+                "name": "Scrambled Eggs with Toast",
+                "calories_kcal": 400,
+                "protein_g": 20,
+                "carbs_g": 30,
+                "fat_g": 20,
+                "ingredients": {
+                    "Eggs": 100,
+                    "Bread": 50,
+                    "Butter": 10
+                }
+            },
+            {
+                "name": "Greek Yogurt Bowl",
+                "calories_kcal": 300,
+                "protein_g": 15,
+                "carbs_g": 25,
+                "fat_g": 10,
+                "ingredients": {
+                    "Greek yogurt": 150,
+                    "Honey": 20,
+                    "Mixed nuts": 30
+                }
+            },
+            {
+                "name": "Fruit Smoothie",
+                "calories_kcal": 250,
+                "protein_g": 5,
+                "carbs_g": 50,
+                "fat_g": 2,
+                "ingredients": {
+                    "Banana": 100,
+                    "Mixed berries": 100,
+                    "Milk": 150
+                }
+            }
+        ],
+        "lunch": [
+            {
+                "name": "Grilled Chicken Salad",
+                "calories_kcal": 450,
+                "protein_g": 40,
+                "carbs_g": 20,
+                "fat_g": 15,
+                "ingredients": {
+                    "Chicken breast": 150,
+                    "Lettuce": 50,
+                    "Tomato": 50,
+                    "Olive oil": 10
+                }
+            },
+            {
+                "name": "Vegetable Stir Fry",
+                "calories_kcal": 500,
+                "protein_g": 15,
+                "carbs_g": 70,
+                "fat_g": 10,
+                "ingredients": {
+                    "Mixed vegetables": 150,
+                    "Rice": 100,
+                    "Soy sauce": 20
+                }
+            },
+            {
+                "name": "Pasta Marinara",
+                "calories_kcal": 550,
+                "protein_g": 20,
+                "carbs_g": 80,
+                "fat_g": 15,
+                "ingredients": {
+                    "Pasta": 100,
+                    "Tomato sauce": 150,
+                    "Olive oil": 10
+                }
+            },
+            {
+                "name": "Quinoa Salad",
+                "calories_kcal": 400,
+                "protein_g": 18,
+                "carbs_g": 50,
+                "fat_g": 12,
+                "ingredients": {
+                    "Quinoa": 100,
+                    "Cucumber": 50,
+                    "Feta cheese": 30,
+                    "Olive oil": 10
+                }
+            }
+        ],
+        "dinner": [
+            {
+                "name": "Baked Salmon",
+                "calories_kcal": 600,
+                "protein_g": 45,
+                "carbs_g": 30,
+                "fat_g": 25,
+                "ingredients": {
+                    "Salmon fillet": 150,
+                    "Mixed vegetables": 100,
+                    "Olive oil": 15
+                }
+            },
+            {
+                "name": "Beef Stir Fry",
+                "calories_kcal": 650,
+                "protein_g": 50,
+                "carbs_g": 25,
+                "fat_g": 30,
+                "ingredients": {
+                    "Beef strips": 150,
+                    "Broccoli": 100,
+                    "Soy sauce": 20
+                }
+            },
+            {
+                "name": "Vegetable Curry",
+                "calories_kcal": 550,
+                "protein_g": 20,
+                "carbs_g": 70,
+                "fat_g": 15,
+                "ingredients": {
+                    "Mixed vegetables": 150,
+                    "Rice": 100,
+                    "Coconut milk": 50
+                }
+            },
+            {
+                "name": "Chicken Alfredo",
+                "calories_kcal": 700,
+                "protein_g": 40,
+                "carbs_g": 80,
+                "fat_g": 35,
+                "ingredients": {
+                    "Pasta": 100,
+                    "Chicken breast": 150,
+                    "Cream": 50
+                }
+            }
+        ],
+        "snack": [
+            {
+                "name": "Hummus with Carrots",
+                "calories_kcal": 200,
+                "protein_g": 8,
+                "carbs_g": 20,
+                "fat_g": 10,
+                "ingredients": {
+                    "Hummus": 100,
+                    "Carrots": 50
+                }
+            },
+            {
+                "name": "Mixed Nuts",
+                "calories_kcal": 300,
+                "protein_g": 10,
+                "carbs_g": 15,
+                "fat_g": 25,
+                "ingredients": {
+                    "Assorted nuts": 50
+                }
+            },
+            {
+                "name": "Tropical Fruit Salad",
+                "calories_kcal": 150,
+                "protein_g": 2,
+                "carbs_g": 35,
+                "fat_g": 1,
+                "ingredients": {
+                    "Apple": 50,
+                    "Banana": 50,
+                    "Orange": 50
+                }
+            },
+            {
+                "name": "Yogurt Parfait",
+                "calories_kcal": 250,
+                "protein_g": 12,
+                "carbs_g": 30,
+                "fat_g": 5,
+                "ingredients": {
+                    "Yogurt": 150,
+                    "Granola": 50
+                }
+            }
+        ]
+    },
+    "products": [
+        {
+            "product": "Oats packet",
+            "quantity": "500g",
+            "description": "Covers 10 servings"
+        },
+        {
+            "product": "Banana bunch",
+            "quantity": "250g",
+            "description": "≈2 medium bananas"
+        },
+        {
+            "product": "Milk carton",
+            "quantity": "1L",
+            "description": "Standard supermarket size"
+        },
+        {
+            "product": "Eggs carton",
+            "quantity": "12 eggs",
+            "description": "Large eggs"
+        },
+        {
+            "product": "Bread loaf",
+            "quantity": "400g",
+            "description": "Whole wheat"
+        },
+        {
+            "product": "Butter pack",
+            "quantity": "250g",
+            "description": "Unsalted"
+        },
+        {
+            "product": "Greek yogurt tub",
+            "quantity": "500g",
+            "description": "Plain, full-fat"
+        },
+        {
+            "product": "Honey bottle",
+            "quantity": "250g",
+            "description": "Pure honey"
+        },
+        {
+            "product": "Mixed nuts pack",
+            "quantity": "200g",
+            "description": "Assorted nuts"
+        },
+        {
+            "product": "Mixed berries pack",
+            "quantity": "300g",
+            "description": "Frozen berries mix"
+        },
+        {
+            "product": "Chicken breast pack",
+            "quantity": "500g",
+            "description": "Fresh vacuum-sealed"
+        },
+        {
+            "product": "Lettuce head",
+            "quantity": "200g",
+            "description": "Fresh iceberg lettuce"
+        },
+        {
+            "product": "Tomatoes pack",
+            "quantity": "400g",
+            "description": "4-5 medium tomatoes"
+        },
+        {
+            "product": "Olive oil bottle",
+            "quantity": "500ml",
+            "description": "Extra virgin"
+        },
+        {
+            "product": "Mixed vegetables",
+            "quantity": "500g",
+            "description": "Frozen medley pack"
+        },
+        {
+            "product": "Rice pack",
+            "quantity": "1kg",
+            "description": "Basmati rice"
+        },
+        {
+            "product": "Soy sauce bottle",
+            "quantity": "250ml",
+            "description": "Low sodium"
+        },
+        {
+            "product": "Pasta pack",
+            "quantity": "500g",
+            "description": "Penne pasta"
+        },
+        {
+            "product": "Tomato sauce jar",
+            "quantity": "500g",
+            "description": "Marinara sauce"
+        },
+        {
+            "product": "Quinoa pack",
+            "quantity": "400g",
+            "description": "White quinoa"
+        },
+        {
+            "product": "Cucumber",
+            "quantity": "200g",
+            "description": "1 large cucumber"
+        },
+        {
+            "product": "Feta cheese pack",
+            "quantity": "200g",
+            "description": "Greek feta"
+        },
+        {
+            "product": "Salmon fillets",
+            "quantity": "400g",
+            "description": "Fresh Atlantic salmon"
+        },
+        {
+            "product": "Beef strips pack",
+            "quantity": "400g",
+            "description": "Stir-fry cut"
+        },
+        {
+            "product": "Broccoli head",
+            "quantity": "300g",
+            "description": "Fresh broccoli"
+        },
+        {
+            "product": "Coconut milk can",
+            "quantity": "400ml",
+            "description": "Full-fat"
+        },
+        {
+            "product": "Cream carton",
+            "quantity": "200ml",
+            "description": "Heavy cream"
+        },
+        {
+            "product": "Hummus tub",
+            "quantity": "200g",
+            "description": "Classic hummus"
+        },
+        {
+            "product": "Carrots pack",
+            "quantity": "500g",
+            "description": "Fresh carrots"
+        },
+        {
+            "product": "Assorted nuts pack",
+            "quantity": "200g",
+            "description": "Trail mix"
+        },
+        {
+            "product": "Apple pack",
+            "quantity": "1kg",
+            "description": "6-7 medium apples"
+        },
+        {
+            "product": "Orange net",
+            "quantity": "1kg",
+            "description": "6-8 medium oranges"
+        },
+        {
+            "product": "Yogurt tub",
+            "quantity": "500g",
+            "description": "Plain yogurt"
+        },
+        {
+            "product": "Granola pack",
+            "quantity": "400g",
+            "description": "Crunchy granola"
+        }
+    ]
+}
