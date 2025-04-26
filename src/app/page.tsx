@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MealProvider } from '@/context/MealContext';
 import { useMealContext } from '@/context/MealContext';
 import { MealType, MealData } from '@/types/meals';
@@ -22,6 +22,18 @@ function MealPlanner() {
     { type: 'dinner', title: 'Dinner', gradient: 'from-purple-50 to-indigo-50' },
     { type: 'snack', title: 'Evening Snack', gradient: 'from-green-50 to-emerald-50' },
   ];
+
+  useEffect(() => {
+    if (showShoppingList || showSmartPlanner) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [showShoppingList, showSmartPlanner]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
