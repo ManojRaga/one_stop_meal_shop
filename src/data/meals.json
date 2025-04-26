@@ -2,421 +2,485 @@
   "dishes": {
     "breakfast": [
       {
+        "id": "b1",
         "name": "Oatmeal with Banana",
+        "description": "Classic oatmeal with fresh banana and milk",
         "calories_kcal": 350,
         "protein_g": 10,
         "carbs_g": 60,
         "fat_g": 5,
-        "ingredients": {
-          "Oats": 50,
-          "Banana": 100,
-          "Milk": 200
-        }
+        "ingredients": [
+          { "name": "Oats", "amount": 50 },
+          { "name": "Banana", "amount": 100 },
+          { "name": "Milk", "amount": 200 }
+        ]
       },
       {
+        "id": "b2",
         "name": "Scrambled Eggs with Toast",
+        "description": "Fluffy scrambled eggs served with buttered toast",
         "calories_kcal": 400,
         "protein_g": 20,
         "carbs_g": 30,
         "fat_g": 20,
-        "ingredients": {
-          "Eggs": 100,
-          "Bread": 50,
-          "Butter": 10
-        }
+        "ingredients": [
+          { "name": "Eggs", "amount": 100 },
+          { "name": "Bread", "amount": 50 },
+          { "name": "Butter", "amount": 10 }
+        ]
       },
       {
+        "id": "b3",
         "name": "Greek Yogurt Bowl",
+        "description": "Creamy Greek yogurt with honey and mixed nuts",
         "calories_kcal": 300,
         "protein_g": 15,
         "carbs_g": 25,
         "fat_g": 10,
-        "ingredients": {
-          "Greek yogurt": 150,
-          "Honey": 20,
-          "Mixed nuts": 30
-        }
+        "ingredients": [
+          { "name": "Greek yogurt", "amount": 150 },
+          { "name": "Honey", "amount": 20 },
+          { "name": "Mixed nuts", "amount": 30 }
+        ]
       },
       {
+        "id": "b4",
         "name": "Fruit Smoothie",
+        "description": "Refreshing smoothie with banana and mixed berries",
         "calories_kcal": 250,
         "protein_g": 5,
         "carbs_g": 50,
         "fat_g": 2,
-        "ingredients": {
-          "Banana": 100,
-          "Mixed berries": 100,
-          "Milk": 150
-        }
+        "ingredients": [
+          { "name": "Banana", "amount": 100 },
+          { "name": "Mixed berries", "amount": 100 },
+          { "name": "Milk", "amount": 150 }
+        ]
       },
       {
+        "id": "b5",
         "name": "Greek Yogurt Parfait",
+        "description": "Layered parfait with granola and fresh berries",
         "calories_kcal": 320,
         "protein_g": 15,
         "carbs_g": 45,
         "fat_g": 12,
-        "ingredients": {
-          "greek_yogurt": 200,
-          "granola": 45,
-          "honey": 15,
-          "mixed_berries": 100
-        }
+        "ingredients": [
+          { "name": "Greek yogurt", "amount": 200 },
+          { "name": "Granola", "amount": 45 },
+          { "name": "Honey", "amount": 15 },
+          { "name": "Mixed berries", "amount": 100 }
+        ]
       },
       {
+        "id": "b6",
         "name": "Avocado Toast",
+        "description": " Toasted sourdough bread topped with mashed avocado",
         "calories_kcal": 380,
         "protein_g": 12,
         "carbs_g": 35,
         "fat_g": 24,
-        "ingredients": {
-          "sourdough_bread": 80,
-          "avocado": 100,
-          "cherry_tomatoes": 50,
-          "eggs": 50,
-          "red_pepper_flakes": 2
-        }
+        "ingredients": [
+          { "name": "Sourdough bread", "amount": 80 },
+          { "name": "Avocado", "amount": 100 },
+          { "name": "Cherry tomatoes", "amount": 50 },
+          { "name": "Eggs", "amount": 50 },
+          { "name": "Red pepper flakes", "amount": 2 }
+        ]
       },
       {
+        "id": "b7",
         "name": "Protein Smoothie Bowl",
+        "description": "Thick and creamy protein smoothie topped with granola",
         "calories_kcal": 420,
         "protein_g": 25,
         "carbs_g": 52,
         "fat_g": 14,
-        "ingredients": {
-          "protein_powder": 30,
-          "banana": 120,
-          "almond_milk": 240,
-          "chia_seeds": 15,
-          "peanut_butter": 30
-        }
+        "ingredients": [
+          { "name": "Protein powder", "amount": 30 },
+          { "name": "Banana", "amount": 120 },
+          { "name": "Almond milk", "amount": 240 },
+          { "name": "Chia seeds", "amount": 15 },
+          { "name": "Peanut butter", "amount": 30 }
+        ]
       },
       {
+        "id": "b8",
         "name": "Breakfast Burrito",
+        "description": "Flour tortilla filled with scrambled eggs and black beans",
         "calories_kcal": 550,
         "protein_g": 28,
         "carbs_g": 58,
         "fat_g": 26,
-        "ingredients": {
-          "tortilla": 60,
-          "eggs": 100,
-          "black_beans": 80,
-          "cheese": 30,
-          "salsa": 45
-        }
+        "ingredients": [
+          { "name": "Tortilla", "amount": 60 },
+          { "name": "Eggs", "amount": 100 },
+          { "name": "Black beans", "amount": 80 },
+          { "name": "Cheese", "amount": 30 },
+          { "name": "Salsa", "amount": 45 }
+        ]
       }
     ],
     "lunch": [
       {
+        "id": "l1",
         "name": "Grilled Chicken Salad",
+        "description": "Fresh salad with grilled chicken breast",
         "calories_kcal": 450,
         "protein_g": 40,
         "carbs_g": 20,
         "fat_g": 15,
-        "ingredients": {
-          "Chicken breast": 150,
-          "Lettuce": 50,
-          "Tomato": 50,
-          "Olive oil": 10
-        }
+        "ingredients": [
+          { "name": "Chicken breast", "amount": 150 },
+          { "name": "Lettuce", "amount": 50 },
+          { "name": "Tomato", "amount": 50 },
+          { "name": "Olive oil", "amount": 10 }
+        ]
       },
       {
+        "id": "l2",
         "name": "Vegetable Stir Fry",
+        "description": "Stir-fry with mixed vegetables and brown rice",
         "calories_kcal": 500,
         "protein_g": 15,
         "carbs_g": 70,
         "fat_g": 10,
-        "ingredients": {
-          "Mixed vegetables": 150,
-          "Rice": 100,
-          "Soy sauce": 20
-        }
+        "ingredients": [
+          { "name": "Mixed vegetables", "amount": 150 },
+          { "name": "Rice", "amount": 100 },
+          { "name": "Soy sauce", "amount": 20 }
+        ]
       },
       {
+        "id": "l3",
         "name": "Pasta Marinara",
+        "description": "Classic pasta dish with marinara sauce",
         "calories_kcal": 550,
         "protein_g": 20,
         "carbs_g": 80,
         "fat_g": 15,
-        "ingredients": {
-          "Pasta": 100,
-          "Tomato sauce": 150,
-          "Olive oil": 10
-        }
+        "ingredients": [
+          { "name": "Pasta", "amount": 100 },
+          { "name": "Tomato sauce", "amount": 150 },
+          { "name": "Olive oil", "amount": 10 }
+        ]
       },
       {
+        "id": "l4",
         "name": "Quinoa Salad",
+        "description": "Mixed quinoa salad with cucumber and feta cheese",
         "calories_kcal": 400,
         "protein_g": 18,
         "carbs_g": 50,
         "fat_g": 12,
-        "ingredients": {
-          "Quinoa": 100,
-          "Cucumber": 50,
-          "Feta cheese": 30,
-          "Olive oil": 10
-        }
+        "ingredients": [
+          { "name": "Quinoa", "amount": 100 },
+          { "name": "Cucumber", "amount": 50 },
+          { "name": "Feta cheese", "amount": 30 },
+          { "name": "Olive oil", "amount": 10 }
+        ]
       },
       {
+        "id": "l5",
         "name": "Mediterranean Quinoa Bowl",
+        "description": "Quinoa bowl with chickpeas, cucumber, and feta cheese",
         "calories_kcal": 480,
         "protein_g": 18,
         "carbs_g": 65,
         "fat_g": 22,
-        "ingredients": {
-          "quinoa": 80,
-          "chickpeas": 120,
-          "cucumber": 80,
-          "feta_cheese": 40,
-          "olive_oil": 15
-        }
+        "ingredients": [
+          { "name": "Quinoa", "amount": 80 },
+          { "name": "Chickpeas", "amount": 120 },
+          { "name": "Cucumber", "amount": 80 },
+          { "name": "Feta cheese", "amount": 40 },
+          { "name": "Olive oil", "amount": 15 }
+        ]
       },
       {
+        "id": "l6",
         "name": "Asian Soba Noodle Salad",
+        "description": "Soba noodle salad with edamame and sesame oil",
         "calories_kcal": 420,
         "protein_g": 16,
         "carbs_g": 68,
         "fat_g": 12,
-        "ingredients": {
-          "soba_noodles": 90,
-          "edamame": 80,
-          "carrots": 60,
-          "sesame_oil": 10,
-          "soy_sauce": 15
-        }
+        "ingredients": [
+          { "name": "Soba noodles", "amount": 90 },
+          { "name": "Edamame", "amount": 80 },
+          { "name": "Carrots", "amount": 60 },
+          { "name": "Sesame oil", "amount": 10 },
+          { "name": "Soy sauce", "amount": 15 }
+        ]
       },
       {
+        "id": "l7",
         "name": "Turkey Club Sandwich",
+        "description": "Classic club sandwich with turkey breast and avocado",
         "calories_kcal": 520,
         "protein_g": 32,
         "carbs_g": 48,
         "fat_g": 24,
-        "ingredients": {
-          "whole_grain_bread": 90,
-          "turkey_breast": 120,
-          "bacon": 30,
-          "avocado": 50,
-          "lettuce": 30
-        }
+        "ingredients": [
+          { "name": "Whole grain bread", "amount": 90 },
+          { "name": "Turkey breast", "amount": 120 },
+          { "name": "Bacon", "amount": 30 },
+          { "name": "Avocado", "amount": 50 },
+          { "name": "Lettuce", "amount": 30 }
+        ]
       },
       {
+        "id": "l8",
         "name": "Lentil Curry Bowl",
+        "description": "Hearty lentil curry with brown rice",
         "calories_kcal": 440,
         "protein_g": 22,
         "carbs_g": 62,
         "fat_g": 16,
-        "ingredients": {
-          "red_lentils": 100,
-          "coconut_milk": 100,
-          "rice": 80,
-          "spinach": 60,
-          "curry_powder": 10
-        }
+        "ingredients": [
+          { "name": "Red lentils", "amount": 100 },
+          { "name": "Coconut milk", "amount": 100 },
+          { "name": "Rice", "amount": 80 },
+          { "name": "Spinach", "amount": 60 },
+          { "name": "Curry powder", "amount": 10 }
+        ]
       }
     ],
     "dinner": [
       {
+        "id": "d1",
         "name": "Baked Salmon",
+        "description": "Oven-baked salmon with roasted vegetables",
         "calories_kcal": 600,
         "protein_g": 45,
         "carbs_g": 30,
         "fat_g": 25,
-        "ingredients": {
-          "Salmon fillet": 150,
-          "Mixed vegetables": 100,
-          "Olive oil": 15
-        }
+        "ingredients": [
+          { "name": "Salmon fillet", "amount": 150 },
+          { "name": "Mixed vegetables", "amount": 100 },
+          { "name": "Olive oil", "amount": 15 }
+        ]
       },
       {
+        "id": "d2",
         "name": "Beef Stir Fry",
+        "description": "Stir-fry with beef strips and mixed vegetables",
         "calories_kcal": 650,
         "protein_g": 50,
         "carbs_g": 25,
         "fat_g": 30,
-        "ingredients": {
-          "Beef strips": 150,
-          "Broccoli": 100,
-          "Soy sauce": 20
-        }
+        "ingredients": [
+          { "name": "Beef strips", "amount": 150 },
+          { "name": "Broccoli", "amount": 100 },
+          { "name": "Soy sauce", "amount": 20 }
+        ]
       },
       {
+        "id": "d3",
         "name": "Vegetable Curry",
+        "description": "Hearty vegetable curry with brown rice",
         "calories_kcal": 550,
         "protein_g": 20,
         "carbs_g": 70,
         "fat_g": 15,
-        "ingredients": {
-          "Mixed vegetables": 150,
-          "Rice": 100,
-          "Coconut milk": 50
-        }
+        "ingredients": [
+          { "name": "Mixed vegetables", "amount": 150 },
+          { "name": "Rice", "amount": 100 },
+          { "name": "Coconut milk", "amount": 50 }
+        ]
       },
       {
+        "id": "d4",
         "name": "Chicken Alfredo",
+        "description": "Classic pasta dish with chicken breast and cream",
         "calories_kcal": 700,
         "protein_g": 40,
         "carbs_g": 80,
         "fat_g": 35,
-        "ingredients": {
-          "Pasta": 100,
-          "Chicken breast": 150,
-          "Cream": 50
-        }
+        "ingredients": [
+          { "name": "Pasta", "amount": 100 },
+          { "name": "Chicken breast", "amount": 150 },
+          { "name": "Cream", "amount": 50 }
+        ]
       },
       {
+        "id": "d5",
         "name": "Teriyaki Salmon Bowl",
+        "description": "Teriyaki-glazed salmon with brown rice",
         "calories_kcal": 580,
-        "protein_g": 42,
+        "protein_g": 35,
         "carbs_g": 55,
         "fat_g": 24,
-        "ingredients": {
-          "salmon_fillet": 180,
-          "brown_rice": 100,
-          "broccoli": 100,
-          "teriyaki_sauce": 30,
-          "sesame_seeds": 5
-        }
+        "ingredients": [
+          { "name": "Salmon fillet", "amount": 180 },
+          { "name": "Brown rice", "amount": 100 },
+          { "name": "Broccoli", "amount": 100 },
+          { "name": "Teriyaki sauce", "amount": 30 },
+          { "name": "Sesame seeds", "amount": 5 }
+        ]
       },
       {
+        "id": "d6",
         "name": "Vegetable Lasagna",
+        "description": "Classic lasagna with mixed vegetables",
         "calories_kcal": 520,
         "protein_g": 24,
         "carbs_g": 58,
         "fat_g": 22,
-        "ingredients": {
-          "lasagna_noodles": 120,
-          "ricotta_cheese": 100,
-          "spinach": 80,
-          "marinara_sauce": 120,
-          "mozzarella": 60
-        }
+        "ingredients": [
+          { "name": "Lasagna noodles", "amount": 120 },
+          { "name": "Ricotta cheese", "amount": 100 },
+          { "name": "Spinach", "amount": 80 },
+          { "name": "Marinara sauce", "amount": 120 },
+          { "name": "Mozzarella", "amount": 60 }
+        ]
       },
       {
+        "id": "d7",
         "name": "Fajita Bowl",
+        "description": "Sizzling fajita bowl with chicken breast and bell peppers",
         "calories_kcal": 490,
         "protein_g": 35,
         "carbs_g": 52,
         "fat_g": 18,
-        "ingredients": {
-          "chicken_breast": 150,
-          "bell_peppers": 100,
-          "rice": 80,
-          "black_beans": 80,
-          "guacamole": 45
-        }
+        "ingredients": [
+          { "name": "Chicken breast", "amount": 150 },
+          { "name": "Bell peppers", "amount": 100 },
+          { "name": "Rice", "amount": 80 },
+          { "name": "Black beans", "amount": 80 },
+          { "name": "Guacamole", "amount": 45 }
+        ]
       },
       {
+        "id": "d8",
         "name": "Pesto Shrimp Pasta",
+        "description": "Classic pasta dish with pesto sauce and shrimp",
         "calories_kcal": 560,
         "protein_g": 32,
         "carbs_g": 65,
         "fat_g": 24,
-        "ingredients": {
-          "whole_wheat_pasta": 100,
-          "shrimp": 150,
-          "pesto_sauce": 45,
-          "cherry_tomatoes": 80,
-          "parmesan": 20
-        }
+        "ingredients": [
+          { "name": "Whole wheat pasta", "amount": 100 },
+          { "name": "Shrimp", "amount": 150 },
+          { "name": "Pesto sauce", "amount": 45 },
+          { "name": "Cherry tomatoes", "amount": 80 },
+          { "name": "Parmesan", "amount": 20 }
+        ]
       }
     ],
     "snack": [
       {
+        "id": "s1",
         "name": "Hummus with Carrots",
+        "description": "Classic hummus with fresh carrots",
         "calories_kcal": 200,
         "protein_g": 8,
         "carbs_g": 20,
         "fat_g": 10,
-        "ingredients": {
-          "Hummus": 100,
-          "Carrots": 50
-        }
+        "ingredients": [
+          { "name": "Hummus", "amount": 100 },
+          { "name": "Carrots", "amount": 50 }
+        ]
       },
       {
+        "id": "s2",
         "name": "Mixed Nuts",
+        "description": "Assorted nuts for snacking",
         "calories_kcal": 300,
         "protein_g": 10,
         "carbs_g": 15,
         "fat_g": 25,
-        "ingredients": {
-          "Assorted nuts": 50
-        }
+        "ingredients": [
+          { "name": "Assorted nuts", "amount": 50 }
+        ]
       },
       {
+        "id": "s3",
         "name": "Tropical Fruit Salad",
+        "description": "Fresh fruit salad with tropical flavors",
         "calories_kcal": 150,
         "protein_g": 2,
         "carbs_g": 35,
         "fat_g": 1,
-        "ingredients": {
-          "Apple": 50,
-          "Banana": 50,
-          "Orange": 50
-        }
+        "ingredients": [
+          { "name": "Apple", "amount": 50 },
+          { "name": "Banana", "amount": 50 },
+          { "name": "Orange", "amount": 50 }
+        ]
       },
       {
+        "id": "s4",
         "name": "Yogurt Parfait",
+        "description": "Layered parfait with yogurt and granola",
         "calories_kcal": 250,
         "protein_g": 12,
         "carbs_g": 30,
         "fat_g": 5,
-        "ingredients": {
-          "Yogurt": 150,
-          "Granola": 50
-        }
+        "ingredients": [
+          { "name": "Yogurt", "amount": 150 },
+          { "name": "Granola", "amount": 50 }
+        ]
       },
       {
+        "id": "s5",
         "name": "Trail Mix Energy Bites",
+        "description": "No-bake energy bites with dates and nuts",
         "calories_kcal": 220,
         "protein_g": 8,
         "carbs_g": 24,
         "fat_g": 12,
-        "ingredients": {
-          "dates": 60,
-          "almonds": 30,
-          "dark_chocolate": 20,
-          "chia_seeds": 10,
-          "coconut_flakes": 15
-        }
+        "ingredients": [
+          { "name": "Dates", "amount": 60 },
+          { "name": "Almonds", "amount": 30 },
+          { "name": "Dark chocolate", "amount": 20 },
+          { "name": "Chia seeds", "amount": 10 },
+          { "name": "Coconut flakes", "amount": 15 }
+        ]
       },
       {
+        "id": "s6",
         "name": "Hummus Veggie Platter",
+        "description": "Classic hummus with fresh vegetables",
         "calories_kcal": 280,
         "protein_g": 10,
         "carbs_g": 32,
         "fat_g": 16,
-        "ingredients": {
-          "hummus": 100,
-          "carrots": 80,
-          "cucumber": 80,
-          "bell_peppers": 80,
-          "pita_chips": 30
-        }
+        "ingredients": [
+          { "name": "Hummus", "amount": 100 },
+          { "name": "Carrots", "amount": 80 },
+          { "name": "Cucumber", "amount": 80 },
+          { "name": "Bell peppers", "amount": 80 },
+          { "name": "Pita chips", "amount": 30 }
+        ]
       },
       {
+        "id": "s7",
         "name": "Greek Yogurt Parfait",
+        "description": "Layered parfait with Greek yogurt and mixed berries",
         "calories_kcal": 240,
         "protein_g": 15,
         "carbs_g": 28,
         "fat_g": 8,
-        "ingredients": {
-          "greek_yogurt": 150,
-          "honey": 15,
-          "mixed_berries": 80,
-          "granola": 30
-        }
+        "ingredients": [
+          { "name": "Greek yogurt", "amount": 150 },
+          { "name": "Honey", "amount": 15 },
+          { "name": "Mixed berries", "amount": 80 },
+          { "name": "Granola", "amount": 30 }
+        ]
       },
       {
+        "id": "s8",
         "name": "Caprese Skewers",
+        "description": "Fresh mozzarella and cherry tomatoes on skewers",
         "calories_kcal": 180,
         "protein_g": 12,
         "carbs_g": 8,
         "fat_g": 14,
-        "ingredients": {
-          "mozzarella_balls": 80,
-          "cherry_tomatoes": 80,
-          "fresh_basil": 10,
-          "balsamic_glaze": 15
-        }
+        "ingredients": [
+          { "name": "Mozzarella balls", "amount": 80 },
+          { "name": "Cherry tomatoes", "amount": 80 },
+          { "name": "Fresh basil", "amount": 10 },
+          { "name": "Balsamic glaze", "amount": 15 }
+        ]
       }
     ]
   },
@@ -920,6 +984,181 @@
       "product": "Pita Chips (small)",
       "quantity": "100g",
       "description": "Sea salt, snack size"
+    },
+    {
+      "product": "Cucumber",
+      "quantity": "200g",
+      "description": "Fresh cucumber"
+    },
+    {
+      "product": "Bell Pepper",
+      "quantity": "150g",
+      "description": "Mixed bell peppers (red, yellow, green)"
+    },
+    {
+      "product": "Rice",
+      "quantity": "1000g",
+      "description": "Long grain white rice"
+    },
+    {
+      "product": "Rice (small)",
+      "quantity": "500g",
+      "description": "Long grain white rice"
+    },
+    {
+      "product": "Tomatoes",
+      "quantity": "500g",
+      "description": "Fresh tomatoes"
+    },
+    {
+      "product": "Tomatoes (small)",
+      "quantity": "250g",
+      "description": "Fresh tomatoes"
+    },
+    {
+      "product": "Onions",
+      "quantity": "500g",
+      "description": "Fresh onions"
+    },
+    {
+      "product": "Garlic",
+      "quantity": "100g",
+      "description": "Fresh garlic"
+    },
+    {
+      "product": "Ginger",
+      "quantity": "100g",
+      "description": "Fresh ginger"
+    },
+    {
+      "product": "Chicken Breast",
+      "quantity": "500g",
+      "description": "Boneless, skinless"
+    },
+    {
+      "product": "Chicken Breast (small)",
+      "quantity": "250g",
+      "description": "Boneless, skinless"
+    },
+    {
+      "product": "Ground Beef",
+      "quantity": "500g",
+      "description": "80/20 lean"
+    },
+    {
+      "product": "Ground Beef (small)",
+      "quantity": "250g",
+      "description": "80/20 lean"
+    },
+    {
+      "product": "Pasta",
+      "quantity": "500g",
+      "description": "Spaghetti or penne"
+    },
+    {
+      "product": "Pasta (small)",
+      "quantity": "250g",
+      "description": "Spaghetti or penne"
+    },
+    {
+      "product": "Potatoes",
+      "quantity": "1000g",
+      "description": "Fresh potatoes"
+    },
+    {
+      "product": "Potatoes (small)",
+      "quantity": "500g",
+      "description": "Fresh potatoes"
+    },
+    {
+      "product": "Carrots",
+      "quantity": "500g",
+      "description": "Fresh carrots"
+    },
+    {
+      "product": "Carrots (small)",
+      "quantity": "250g",
+      "description": "Fresh carrots"
+    },
+    {
+      "product": "Mozzarella Balls",
+      "quantity": "250g",
+      "description": "Fresh mozzarella in water"
+    },
+    {
+      "product": "Mozzarella Balls (small)",
+      "quantity": "125g",
+      "description": "Fresh mozzarella in water"
+    },
+    {
+      "product": "Balsamic Glaze",
+      "quantity": "250ml",
+      "description": "Reduced balsamic vinegar"
+    },
+    {
+      "product": "Balsamic Glaze (small)",
+      "quantity": "100ml",
+      "description": "Reduced balsamic vinegar"
+    },
+    {
+      "product": "Olive Oil",
+      "quantity": "500ml",
+      "description": "Extra virgin olive oil"
+    },
+    {
+      "product": "Olive Oil (small)",
+      "quantity": "250ml",
+      "description": "Extra virgin olive oil"
+    },
+    {
+      "product": "Parmesan",
+      "quantity": "200g",
+      "description": "Aged Parmigiano Reggiano"
+    },
+    {
+      "product": "Parmesan (small)",
+      "quantity": "100g",
+      "description": "Aged Parmigiano Reggiano"
+    },
+    {
+      "product": "Pine Nuts",
+      "quantity": "100g",
+      "description": "Raw pine nuts"
+    },
+    {
+      "product": "Pine Nuts (small)",
+      "quantity": "50g",
+      "description": "Raw pine nuts"
+    },
+    {
+      "product": "Basil",
+      "quantity": "50g",
+      "description": "Fresh basil leaves"
+    },
+    {
+      "product": "Arugula",
+      "quantity": "100g",
+      "description": "Fresh arugula leaves"
+    },
+    {
+      "product": "Sun-dried Tomatoes",
+      "quantity": "200g",
+      "description": "In olive oil"
+    },
+    {
+      "product": "Sun-dried Tomatoes (small)",
+      "quantity": "100g",
+      "description": "In olive oil"
+    },
+    {
+      "product": "Pesto",
+      "quantity": "190g",
+      "description": "Fresh basil pesto"
+    },
+    {
+      "product": "Pesto (small)",
+      "quantity": "90g",
+      "description": "Fresh basil pesto"
     }
   ]
 }

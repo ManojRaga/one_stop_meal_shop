@@ -1,52 +1,128 @@
 import { useMemo } from 'react';
+import { useMealContext } from '@/context/MealContext';
+import Modal from './Modal';
+import mealsData from '@/data/meals.json';
 
 interface ShoppingListProps {
-  ingredients: { [key: string]: number };
-  products: Array<{ product: string; quantity: string; description: string }>;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
-export default function ShoppingList({ ingredients, products }: ShoppingListProps) {
-  const getProduct = (ingredient: string) => {
-    return products.find((p) =>
-      p.product.toLowerCase().includes(ingredient.toLowerCase())
-    );
-  };
+interface Product {
+  product: string;
+  quantity: string;
+  description: string;
+}
 
-  const uniqueProducts = Array.from(
-    new Set(
-      Object.keys(ingredients)
-        .map((ingredient) => getProduct(ingredient))
-        .filter((product) => product !== undefined)
-    )
-  );
+interface ProductWithCount extends Product {
+  count: number;
+}
+
+interface ShoppingItem {
+  ingredient: string;
+  amount: number;
+  rawAmount: boolean;
+  selectedProduct?: ProductWithCount;
+}
+
+function getProductQuantityInGrams(quantityStr: string): number {
+  const match = quantityStr.match(/(\d+)g/);
+  if (match) {
+    return parseInt(match[1], 10);
+  }
+  // Handle special cases
+  if (quantityStr.includes('pieces')) {
+    const pieces = parseInt(quantityStr.split(' ')[0], 10);
+    return pieces * 200; // Assuming each piece is about 200g
+  }
+  if (quantityStr.includes('loaf')) {
+    return quantityStr.includes('half') ? 400 : 800; // Assuming a loaf is 800g
+  }
+  if (quantityStr.includes('ml')) {
+    const ml = parseInt(quantityStr.match(/(\d+)ml/)?.[1] || '0', 10);
+    return ml; // Assuming 1ml = 1g for simplicity
+  }
+  return 0;
+}
+
+function findBestProductMatch(ingredient: string, products: Product[]): Product[] {
+  return products.filter(p => 
+    p.product.toLowerCase().includes(ingredient.toLowerCase()) ||
+    ingredient.toLowerCase().includes(p.product.toLowerCase().replace(' (small)', ''))
+  ).sort((a, b) => {
+    // Sort smaller packages first
+    return a.product.includes('small') ? -1 : 1;
+  });
+}
+
+function calculateProductQuantity(requiredAmount: number, product: Product): number {
+  const productAmount = getProductQuantityInGrams(product.quantity);
+  return Math.ceil(requiredAmount / productAmount);
+}
+
+export default function ShoppingList({ isOpen, onClose }: ShoppingListProps) {
+  const { consolidatedIngredients } = useMealContext();
+  const products = mealsData.products;
+
+  const shoppingItems = useMemo(() => {
+    return Object.entries(consolidatedIngredients).map(([ingredient, amount]) => {
+      const matchingProducts = findBestProductMatch(ingredient, products);
+      
+      if (matchingProducts.length === 0) {
+        return {
+          ingredient,
+          amount,
+          rawAmount: true,
+          selectedProduct: undefined
+        } as ShoppingItem;
+      }
+
+      // Calculate quantities for each matching product
+      const productQuantities = matchingProducts.map(product => ({
+        ...product,
+        count: calculateProductQuantity(amount, product)
+      }));
+
+      // Find the most efficient combination (prefer smaller packages if the difference is 1 unit)
+      const bestProduct = productQuantities.reduce((best, current) => {
+        if (!best) return current;
+        const bestTotalAmount = getProductQuantityInGrams(best.quantity) * best.count;
+        const currentTotalAmount = getProductQuantityInGrams(current.quantity) * current.count;
+        if (Math.abs(bestTotalAmount - amount) > Math.abs(currentTotalAmount - amount)) {
+          return current;
+        }
+        return best;
+      });
+
+      return {
+        ingredient,
+        amount,
+        rawAmount: false,
+        selectedProduct: bestProduct
+      } as ShoppingItem;
+    });
+  }, [consolidatedIngredients, products]);
 
   return (
-    <div className="divide-y divide-gray-100">
-      <div className="p-6">
-        <div className="grid gap-3">
-          {uniqueProducts.map((product) => (
-            <div
-              key={product!.product}
-              className="flex items-center justify-between p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
-            >
-              <div className="flex items-center gap-3">
-                <div className="h-8 w-8 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="font-medium text-gray-900">{product!.product}</div>
-                  <div className="text-sm text-gray-500">{product!.description}</div>
-                </div>
-              </div>
-              <div className="text-sm font-medium text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
-                {product!.quantity}
-              </div>
+    <Modal isOpen={isOpen} onClose={onClose} title="Shopping Cart">
+      <div className="space-y-4">
+        {shoppingItems.map((item) => (
+          <div key={item.ingredient} className="flex flex-col p-3 bg-white rounded-lg border border-gray-200">
+            <div className="flex justify-between items-center">
+              <span className="text-gray-800 font-medium">{item.ingredient}</span>
+              <span className="text-gray-500 text-sm">({item.amount}g total)</span>
             </div>
-          ))}
-        </div>
+            {item.rawAmount ? (
+              <span className="text-orange-600 text-sm mt-1">No matching product found</span>
+            ) : item.selectedProduct && (
+              <div className="mt-1 text-sm text-gray-600">
+                Buy: {item.selectedProduct.count}× {item.selectedProduct.product}
+                <span className="block text-gray-500 text-xs">{item.selectedProduct.description}</span>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
-    </div>
+    </Modal>
   );
 }

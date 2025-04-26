@@ -1,84 +1,66 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
-import { Dish, MealType, SelectedMeal, DailyNutrition } from '@/types/meals';
+import React, { createContext, useContext, useState, useMemo } from 'react';
+import { MealType, Dish, DailyNutrition } from '@/types/meals';
 
 interface MealContextType {
-  selectedMeals: SelectedMeal[];
+  selectedMeals: Array<{ type: MealType; dish: Dish }>;
   dailyNutrition: DailyNutrition;
   consolidatedIngredients: { [key: string]: number };
   toggleMealSelection: (type: MealType, dish: Dish) => void;
-  getSelectedMeal: (type: MealType) => Dish | null;
-  planMeals: (meals: SelectedMeal[]) => void;
-  clearMealPlan: () => void;
+  getSelectedMeal: (type: MealType) => Dish | undefined;
+  planMeals: (meals: Array<{ type: MealType; dish: Dish }>) => void;
 }
-
-const defaultDailyNutrition: DailyNutrition = {
-  calories_kcal: 0,
-  protein_g: 0,
-  carbs_g: 0,
-  fat_g: 0,
-};
 
 const MealContext = createContext<MealContextType | undefined>(undefined);
 
-export function MealProvider({ children }: { children: ReactNode }) {
-  const [selectedMeals, setSelectedMeals] = useState<SelectedMeal[]>([]);
+export function MealProvider({ children }: { children: React.ReactNode }) {
+  const [selectedMeals, setSelectedMeals] = useState<Array<{ type: MealType; dish: Dish }>>([]);
 
-  const calculateDailyNutrition = (meals: SelectedMeal[]): DailyNutrition => {
-    return meals.reduce(
-      (total, meal) => ({
-        calories_kcal: total.calories_kcal + meal.dish.calories_kcal,
-        protein_g: total.protein_g + meal.dish.protein_g,
-        carbs_g: total.carbs_g + meal.dish.carbs_g,
-        fat_g: total.fat_g + meal.dish.fat_g,
+  const dailyNutrition = useMemo(() => {
+    return selectedMeals.reduce(
+      (total, { dish }) => ({
+        calories_kcal: total.calories_kcal + dish.calories_kcal,
+        protein_g: total.protein_g + dish.protein_g,
+        carbs_g: total.carbs_g + dish.carbs_g,
+        fat_g: total.fat_g + dish.fat_g,
       }),
-      { ...defaultDailyNutrition }
+      { calories_kcal: 0, protein_g: 0, carbs_g: 0, fat_g: 0 }
     );
-  };
+  }, [selectedMeals]);
 
-  const calculateConsolidatedIngredients = (meals: SelectedMeal[]): { [key: string]: number } => {
-    return meals.reduce((total, meal) => {
-      Object.entries(meal.dish.ingredients).forEach(([ingredient, amount]) => {
-        total[ingredient] = (total[ingredient] || 0) + amount;
+  const consolidatedIngredients = useMemo(() => {
+    const ingredients: { [key: string]: number } = {};
+    selectedMeals.forEach((meal) => {
+      meal.dish.ingredients.forEach((ingredient) => {
+        const amount = ingredients[ingredient.name] || 0;
+        ingredients[ingredient.name] = amount + ingredient.amount;
       });
-      return total;
-    }, {} as { [key: string]: number });
-  };
+    });
+    return ingredients;
+  }, [selectedMeals]);
 
   const toggleMealSelection = (type: MealType, dish: Dish) => {
     setSelectedMeals((prev) => {
       const existingIndex = prev.findIndex((meal) => meal.type === type);
       if (existingIndex >= 0) {
-        // If selecting the same dish, remove it; if different dish, replace it
         if (prev[existingIndex].dish.name === dish.name) {
-          const newMeals = prev.filter((_, index) => index !== existingIndex);
-          return newMeals;
+          return prev.filter((_, index) => index !== existingIndex);
         } else {
           const newMeals = [...prev];
           newMeals[existingIndex] = { type, dish };
           return newMeals;
         }
-      } else {
-        // Add new selection
-        return [...prev, { type, dish }];
       }
+      return [...prev, { type, dish }];
     });
   };
 
-  const planMeals = (meals: SelectedMeal[]) => {
+  const getSelectedMeal = (type: MealType) => {
+    return selectedMeals.find((meal) => meal.type === type)?.dish;
+  };
+
+  const planMeals = (meals: Array<{ type: MealType; dish: Dish }>) => {
     setSelectedMeals(meals);
   };
-
-  const clearMealPlan = () => {
-    setSelectedMeals([]);
-  };
-
-  const getSelectedMeal = (type: MealType) => {
-    const meal = selectedMeals.find((meal) => meal.type === type);
-    return meal?.dish || null;
-  };
-
-  const dailyNutrition = calculateDailyNutrition(selectedMeals);
-  const consolidatedIngredients = calculateConsolidatedIngredients(selectedMeals);
 
   return (
     <MealContext.Provider
@@ -89,7 +71,6 @@ export function MealProvider({ children }: { children: ReactNode }) {
         toggleMealSelection,
         getSelectedMeal,
         planMeals,
-        clearMealPlan,
       }}
     >
       {children}
