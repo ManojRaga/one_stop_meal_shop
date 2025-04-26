@@ -12,58 +12,69 @@ export default function ShoppingList({ ingredients, products }: ShoppingListProp
     );
   };
 
-  return (
-    <div className="bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl shadow-lg p-6 text-white">
-      <h2 className="text-2xl font-bold mb-6">Shopping List</h2>
-      <div className="space-y-6">
-        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-          <h3 className="text-xl font-semibold mb-4">Required Ingredients</h3>
-          <div className="grid gap-3">
-            {Object.entries(ingredients).map(([ingredient, amount]) => {
-              const product = getProduct(ingredient);
-              return (
-                <div
-                  key={ingredient}
-                  className="flex items-center justify-between bg-white/5 p-3 rounded-lg"
-                >
-                  <div>
-                    <span className="font-medium">{ingredient}</span>
-                    <span className="text-indigo-200 ml-2">{amount}g needed</span>
-                  </div>
-                  {product && (
-                    <div className="text-sm text-right">
-                      <div className="text-indigo-200">Buy: {product.product}</div>
-                      <div className="text-indigo-100 text-xs">{product.description}</div>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
+  const uniqueProducts = Array.from(
+    new Set(
+      Object.keys(ingredients)
+        .map((ingredient) => getProduct(ingredient))
+        .filter((product) => product !== undefined)
+    )
+  );
 
-        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-          <h3 className="text-xl font-semibold mb-4">Products to Buy</h3>
-          <div className="grid gap-3">
-            {Array.from(
-              new Set(
-                Object.keys(ingredients)
-                  .map((ingredient) => getProduct(ingredient))
-                  .filter((product) => product !== undefined)
-              )
-            ).map((product) => (
+  return (
+    <div className="divide-y divide-gray-100">
+      <div className="p-6">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">Required Ingredients</h3>
+        <div className="grid gap-3">
+          {Object.entries(ingredients).map(([ingredient, amount]) => {
+            const product = getProduct(ingredient);
+            return (
               <div
-                key={product!.product}
-                className="flex items-center justify-between bg-white/5 p-3 rounded-lg"
+                key={ingredient}
+                className="flex items-center justify-between p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
               >
-                <div className="font-medium">{product!.product}</div>
-                <div className="text-right">
-                  <div className="text-indigo-200">{product!.quantity}</div>
-                  <div className="text-indigo-100 text-xs">{product!.description}</div>
+                <div className="flex items-center gap-3">
+                  <div className="h-2 w-2 rounded-full bg-indigo-500"></div>
+                  <div>
+                    <div className="font-medium text-gray-900">{ingredient}</div>
+                    <div className="text-sm text-gray-500">{amount}g needed</div>
+                  </div>
+                </div>
+                {product && (
+                  <div className="text-right">
+                    <div className="text-sm font-medium text-indigo-600">{product.product}</div>
+                    <div className="text-xs text-gray-500">{product.description}</div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="p-6">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">Shopping Cart</h3>
+        <div className="grid gap-3">
+          {uniqueProducts.map((product) => (
+            <div
+              key={product!.product}
+              className="flex items-center justify-between p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
+            >
+              <div className="flex items-center gap-3">
+                <div className="h-8 w-8 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="font-medium text-gray-900">{product!.product}</div>
+                  <div className="text-sm text-gray-500">{product!.description}</div>
                 </div>
               </div>
-            ))}
-          </div>
+              <div className="text-sm font-medium text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
+                {product!.quantity}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -1,3 +1,5 @@
+export type MealType = 'breakfast' | 'lunch' | 'dinner' | 'snack';
+
 export interface Dish {
   name: string;
   calories_kcal: number;
@@ -24,8 +26,6 @@ export interface MealData {
   };
   products: Product[];
 }
-
-export type MealType = 'breakfast' | 'lunch' | 'dinner' | 'snack';
 
 export interface SelectedMeal {
   type: MealType;

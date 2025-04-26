@@ -1,12 +1,12 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
-import { Dish, MealType, SelectedMeal, DailyNutrition } from '@/types/meals';
+import { Dish, MealType, DailyNutrition } from '@/types/meals';
 
 interface MealContextType {
-  selectedMeals: SelectedMeal[];
+  selectedMeals: Array<{ type: MealType; name: string; dish: Dish }>;
   dailyNutrition: DailyNutrition;
+  consolidatedIngredients: { [key: string]: number };
   toggleMealSelection: (type: MealType, dish: Dish) => void;
   getSelectedMeal: (type: MealType) => Dish | null;
-  consolidatedIngredients: { [key: string]: number };
 }
 
 const defaultDailyNutrition: DailyNutrition = {
@@ -19,9 +19,9 @@ const defaultDailyNutrition: DailyNutrition = {
 const MealContext = createContext<MealContextType | undefined>(undefined);
 
 export function MealProvider({ children }: { children: ReactNode }) {
-  const [selectedMeals, setSelectedMeals] = useState<SelectedMeal[]>([]);
+  const [selectedMeals, setSelectedMeals] = useState<Array<{ type: MealType; name: string; dish: Dish }>>([]);
 
-  const calculateDailyNutrition = (meals: SelectedMeal[]): DailyNutrition => {
+  const calculateDailyNutrition = (meals: Array<{ type: MealType; name: string; dish: Dish }>): DailyNutrition => {
     return meals.reduce(
       (total, meal) => ({
         calories_kcal: total.calories_kcal + meal.dish.calories_kcal,
@@ -33,7 +33,7 @@ export function MealProvider({ children }: { children: ReactNode }) {
     );
   };
 
-  const calculateConsolidatedIngredients = (meals: SelectedMeal[]): { [key: string]: number } => {
+  const calculateConsolidatedIngredients = (meals: Array<{ type: MealType; name: string; dish: Dish }>): { [key: string]: number } => {
     return meals.reduce((total, meal) => {
       Object.entries(meal.dish.ingredients).forEach(([ingredient, amount]) => {
         total[ingredient] = (total[ingredient] || 0) + amount;
@@ -46,19 +46,14 @@ export function MealProvider({ children }: { children: ReactNode }) {
     setSelectedMeals((prev) => {
       const existingIndex = prev.findIndex((meal) => meal.type === type);
       if (existingIndex >= 0) {
-        // If selecting the same dish, remove it; if different dish, replace it
-        if (prev[existingIndex].dish.name === dish.name) {
-          const newMeals = prev.filter((_, index) => index !== existingIndex);
-          return newMeals;
-        } else {
-          const newMeals = [...prev];
-          newMeals[existingIndex] = { type, dish };
-          return newMeals;
+        if (prev[existingIndex].name === dish.name) {
+          return prev.filter((_, i) => i !== existingIndex);
         }
-      } else {
-        // Add new selection
-        return [...prev, { type, dish }];
+        const newMeals = [...prev];
+        newMeals[existingIndex] = { type, name: dish.name, dish };
+        return newMeals;
       }
+      return [...prev, { type, name: dish.name, dish }];
     });
   };
 

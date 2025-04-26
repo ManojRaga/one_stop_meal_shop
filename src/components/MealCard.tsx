@@ -1,3 +1,4 @@
+import React from 'react';
 import { Dish } from '@/types/meals';
 
 interface MealCardProps {
@@ -16,7 +17,7 @@ export default function MealCard({ dish, isSelected, onClick }: MealCardProps) {
       }`}
       onClick={onClick}
     >
-      <h3 className={`text-xl font-bold mb-4 ${isSelected ? 'text-white' : 'text-gray-900'}`}>
+      <h3 className={`text-xl font-bold mb-4 min-h-[3.5rem] ${isSelected ? 'text-white' : 'text-gray-900'}`}>
         {dish.name}
       </h3>
       <div className="grid grid-cols-2 gap-4">
